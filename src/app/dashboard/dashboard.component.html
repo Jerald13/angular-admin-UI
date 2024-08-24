@@ -1,0 +1,49 @@
+<!-- Sidebar and Content -->
+<div class="row no-gutters">
+    <!-- Sidebar -->
+    <div class="col-md-3 d-flex sidebar bg-dark">
+        <!-- Icon Column -->
+        <div class="icon-column d-flex flex-column align-items-center bg-secondary">
+            <a href="#" class="nav-link py-3">
+                <img src="https://via.placeholder.com/32" alt="Icon 1" />
+            </a>
+            <a href="#" class="nav-link py-3">
+                <img src="https://via.placeholder.com/32" alt="Icon 2" />
+            </a>
+        </div>
+        <!-- Navigation Column -->
+        <div class="nav-column flex-grow-1 p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <!-- PI Dropdown Toggle -->
+                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#piDropdown" role="button"
+                        aria-expanded="false" aria-controls="piDropdown">
+                        PI
+                    </a>
+
+                    <!-- Dropdown Menu -->
+                    <ul class="collapse nav flex-column ml-3" id="piDropdown">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Chart 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Chart 2</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <!-- More Navigation Items -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">My Research</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9 content p-3">
+
+        <a routerLink="chart1">Dashboard</a>
+    </div>
+</div>

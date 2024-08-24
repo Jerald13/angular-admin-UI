@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #2c3e50; /* Dark background for the navbar */
+}
+
+.navbar-brand img {
+  width: 30px; /* Size of the logo */
+}
+
+.navbar-toggler {
+  border: none; /* Remove border around the hamburger button */
+}
+
+.navbar-nav .nav-link {
+  color: #f2f2f2; /* Default link color */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ddd; /* Link hover color */
+}
+
+.dropdown-menu {
+  right: 0; /* Align dropdown menu to the right */
+  left: auto; /* Disable left alignment */
+}
+
+.account-img {
+  width: 30px;
+  border-radius: 50%; /* Circular profile image */
+}

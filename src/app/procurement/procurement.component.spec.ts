@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpecialComponent } from './special.component';
+import { ProcurementComponent } from './procurement.component';
 
-describe('SpecialComponent', () => {
-  let component: SpecialComponent;
-  let fixture: ComponentFixture<SpecialComponent>;
+describe('ProcurementComponent', () => {
+  let component: ProcurementComponent;
+  let fixture: ComponentFixture<ProcurementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SpecialComponent]
+      imports: [ProcurementComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SpecialComponent);
+    fixture = TestBed.createComponent(ProcurementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
