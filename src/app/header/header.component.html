@@ -1,8 +1,8 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- Hamburger menu button for mobile -->
-    <button *ngIf="isHamburgerVisible" class="navbar-toggler d-lg-none" type="button" (click)="toggleSidebar()"
-      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button *ngIf="isHamburgerVisible" class="navbar-toggler d-lg-none" type="button" style="margin-left: 15px;"
+      (click)="toggleSidebar()" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -48,16 +48,17 @@
       </a>
 
       <!-- Profile dropdown -->
-      <div ngbDropdown class="dropdown d-flex align-items-center" style="margin-right: 20px;">
-        <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="dropdownAccount"
-          ngbDropdownToggle>
+      <div ngbDropdown class="dropdown d-flex align-items-center position-relative" style="margin-right: 20px;">
+        <a class="nav-link dropdown-toggle d-flex align-items-center text-white" id="dropdownAccount" ngbDropdownToggle>
           <img src="../../assets/avatar.png" alt="Profile" style="width: 40px; margin-right: 10px;">
           <div class="d-none d-lg-block text-white" style="margin-right: 20px;">
             <div>John Smith</div>
             <small>Accounting</small>
           </div>
         </a>
-        <div ngbDropdownMenu aria-labelledby="dropdownAccount">
+        <!-- Add "position-absolute" class to dropdown menu for better control -->
+        <div ngbDropdownMenu aria-labelledby="dropdownAccount" class="dropdown-menu dropdown-menu-end position-absolute"
+          style="background-color: white; color: black; border-radius: 5px; z-index: 1050;">
           <button ngbDropdownItem>Light Theme</button>
           <button ngbDropdownItem>Black Theme</button>
           <button ngbDropdownItem>Sign out</button>
@@ -76,8 +77,6 @@
 
       <!-- Navigation Links -->
       <ul class="navbar-nav me-auto d-flex flex-column align-items-start p-3">
-        <li class="nav-item d-flex align-items-center mb-3">
-        </li>
         <li class="nav-item mb-3">
           <a class="nav-link text-white" href="#">Dashboard</a>
         </li>

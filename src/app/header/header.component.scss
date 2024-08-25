@@ -4,6 +4,7 @@
   padding: 0;
   position: relative;
   overflow: hidden;
+  z-index: 1030; /* Ensure navbar is on top */
 }
 
 /* Sidebar styling for slide-in effect */
@@ -16,7 +17,7 @@
   transition: left 0.3s ease; /* Slide-in transition */
   z-index: 1050;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  background-color: #2c405a; /* Match the sidebar background color in the image */
+  background-color: #2c405a;
 }
 
 /* When sidebar is visible */
@@ -85,7 +86,6 @@ div#mobileSidebar {
 
 /* Additional Media Queries for Responsiveness */
 @media (min-width: 992px) {
-  /* Bootstrap lg breakpoint */
   .mobile-sidebar {
     display: none; /* Hide sidebar on larger screens */
   }

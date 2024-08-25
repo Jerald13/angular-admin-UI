@@ -19,6 +19,17 @@
 
         <!-- Navigation Column -->
         <div class="nav-column flex-grow-1 p-3">
+            <!-- Title and Plus Icon -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0" style="color: black;font-size:20px;padding-left: 20px;">PROCUREMENT</h5>
+                <button class="btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                    style="border: 2px solid #0b8fe2; color: #0b8fe2; background-color: transparent; width: 35px; height: 35px; padding: 0;">
+                    <mat-icon fontIcon="add" style="font-size: 25px; font-weight: bold; color: #0b8fe2;"></mat-icon>
+                </button>
+            </div>
+
+            <hr style="color: #00000056;">
+
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <!-- PI Dropdown Toggle -->
@@ -32,6 +43,7 @@
 
                     <!-- Dropdown Menu -->
                     <ul class="collapse nav flex-column ms-3" style="color: black;" id="piDropdown">
+                        <!-- Dropdown Items -->
                         <li class="nav-item">
                             <a class="nav-link" style="color: black;" routerLink="chart1">Chart 1</a>
                         </li>
@@ -39,8 +51,6 @@
                             <a class="nav-link" style="color: black;" routerLink="chart2">Chart 2</a>
                         </li>
                     </ul>
-
-
                 </li>
 
                 <!-- More Navigation Items -->
@@ -51,9 +61,9 @@
                         My Research
                     </a>
                 </li>
-
             </ul>
         </div>
+
     </div>
 
     <!-- Main Content -->
