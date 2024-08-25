@@ -29,5 +29,5 @@ export const routes: Routes = [
     ],
   },
 
-  { path: '**', component: DashboardComponent },
+  { path: '**', component: ProcurementComponent },
 ];

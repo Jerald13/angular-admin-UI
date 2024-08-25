@@ -6,10 +6,9 @@
   padding: 0;
 }
 
-/* Styling the icon column */
 .icon-column {
   background-color: #202c3c !important;
-  width: 100px; /* Adjust width as needed */
+  width: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 25px !important;
@@ -21,10 +20,9 @@
 }
 
 .nav-column .nav > .nav-item > .nav {
-  margin-left: 10px; /* Adjust indent as needed */
+  margin-left: 10px;
 }
 
-/* Optional: Styling the main content */
 .content {
   background-color: #f8f9fa;
   min-height: 100vh;
@@ -36,16 +34,18 @@
 }
 
 .icon-column .mat-icon {
-  font-size: 22px; /* Adjust icon size */
-  margin-bottom: 5px; /* Spacing between icon and text */
+  font-size: 22px;
+  margin-bottom: 5px;
 }
 
-/* Initial state for the dropdown arrow */
 .dropdown-arrow {
-  transition: transform 0.3s ease; /* Smooth transition for rotation */
+  transition: transform 0.3s ease;
 }
 
-/* Rotate the arrow when the dropdown is expanded */
 .collapse.show + a .dropdown-arrow {
-  transform: rotate(180deg); /* Rotate 180 degrees to point up */
+  transform: rotate(180deg);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
 }
