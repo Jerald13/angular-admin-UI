@@ -1,3 +1,11 @@
+1. Run the following command to install all the necessary dependencies:
+
+npm install
+
+2. To serve the application locally, run the following command:
+
+ng serve
+
 # AngularTour
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
