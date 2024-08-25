@@ -9,18 +9,26 @@ import { RouterModule } from '@angular/router';
 import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterModule, BreadcrumbComponent, MatIconModule, CommonModule],
+  imports: [
+    RouterModule,
+    BreadcrumbComponent,
+    MatIconModule,
+    CommonModule,
+    NgbDropdownModule,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  isSidebarVisibleOnMobile: boolean = false; // Control mobile sidebar visibility
-  isSidebarVisibleOnPC: boolean = false; // Control PC sidebar visibility
+  isSidebarVisibleOnMobile: boolean = false;   isSidebarVisibleOnPC: boolean = false;   isDropdownOpen: boolean = false;
 
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
   @ViewChild('sidebarContainerMobile') sidebarContainerMobileRef!: ElementRef;
   @ViewChild('mobileHamburgerButton') mobileHamburgerButtonRef!: ElementRef;
   @ViewChild('pcHamburgerButton') pcHamburgerButtonRef!: ElementRef;
@@ -28,8 +36,7 @@ export class DashboardComponent {
   constructor(private eRef: ElementRef) {}
 
   ngAfterViewInit(): void {
-    // Check that ViewChild references are available
-    if (
+        if (
       !this.sidebarContainerMobileRef ||
       !this.mobileHamburgerButtonRef ||
       !this.pcHamburgerButtonRef
@@ -38,29 +45,24 @@ export class DashboardComponent {
     }
   }
 
-  // Toggle sidebar visibility for mobile
-  toggleSidebar() {
+    toggleSidebar() {
     this.isSidebarVisibleOnMobile = !this.isSidebarVisibleOnMobile;
   }
 
-  // Toggle sidebar visibility for PC
-  toggleSidebarPC() {
+    toggleSidebarPC() {
     this.isSidebarVisibleOnPC = !this.isSidebarVisibleOnPC;
   }
 
-  // Listener to detect clicks outside the sidebar
-  @HostListener('document:click', ['$event'])
+    @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     const targetElement = event.target as HTMLElement;
 
-    // Ensure ViewChild elements are defined
-    if (
+        if (
       !this.sidebarContainerMobileRef ||
       !this.mobileHamburgerButtonRef ||
       !this.pcHamburgerButtonRef
     ) {
-      return; // Exit if ViewChild elements are not found
-    }
+      return;     }
 
     const sidebarElement = this.sidebarContainerMobileRef
       .nativeElement as HTMLElement;
@@ -69,18 +71,9 @@ export class DashboardComponent {
     const pcHamburgerElement = this.pcHamburgerButtonRef
       .nativeElement as HTMLElement;
 
-    // Check if the clicked target is outside the sidebar element and both hamburger buttons
-    if (
-      (this.isSidebarVisibleOnMobile || this.isSidebarVisibleOnPC) && // Check if any sidebar is currently visible
-      targetElement && // Ensure targetElement is defined
-      sidebarElement && // Ensure sidebarElement is defined
-      !sidebarElement.contains(targetElement) && // Check if the click is outside the sidebar
-      !mobileHamburgerElement.contains(targetElement) && // Check if the click is not on the mobile button
-      !pcHamburgerElement.contains(targetElement) // Check if the click is not on the PC button
-    ) {
-      this.isSidebarVisibleOnMobile = false; // Close mobile sidebar if click is outside
-      this.isSidebarVisibleOnPC = false; // Close PC sidebar if click is outside
-    }
+        if (
+      (this.isSidebarVisibleOnMobile || this.isSidebarVisibleOnPC) &&       targetElement &&       sidebarElement &&       !sidebarElement.contains(targetElement) &&       !mobileHamburgerElement.contains(targetElement) &&       !pcHamburgerElement.contains(targetElement)     ) {
+      this.isSidebarVisibleOnMobile = false;       this.isSidebarVisibleOnPC = false;     }
   }
 
   onSidebarClick(event: MouseEvent): void {

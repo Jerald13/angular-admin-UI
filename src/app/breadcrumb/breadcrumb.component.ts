@@ -1,4 +1,3 @@
-// src/app/breadcrumb/breadcrumb.component.ts
 import { Component, OnInit } from '@angular/core';
 import {
   Router,
@@ -18,8 +17,7 @@ interface Breadcrumb {
 @Component({
   selector: 'app-breadcrumb',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatIconModule], // Import necessary modules
-  templateUrl: './breadcrumb.component.html',
+  imports: [CommonModule, RouterModule, MatIconModule],   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss'],
 })
 export class BreadcrumbComponent implements OnInit {
@@ -28,8 +26,7 @@ export class BreadcrumbComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // Initialize breadcrumbs with the current route
-    this.breadcrumbs = this.createBreadcrumbs(this.route.root);
+        this.breadcrumbs = this.createBreadcrumbs(this.route.root);
 
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -62,8 +59,7 @@ export class BreadcrumbComponent implements OnInit {
         breadcrumbs.push({ label, url });
       }
 
-      // Recursively call createBreadcrumbs for child routes
-      this.createBreadcrumbs(child, url, breadcrumbs);
+            this.createBreadcrumbs(child, url, breadcrumbs);
     }
 
     return breadcrumbs;

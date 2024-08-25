@@ -22,21 +22,16 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  isHamburgerVisible: boolean = true; // Set initial visibility to true
-  isSidebarVisible: boolean = false; // Boolean to control sidebar visibility
-
+  isHamburgerVisible: boolean = true;   isSidebarVisible: boolean = false; 
   constructor(private eRef: ElementRef) {}
 
   toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible; // Toggle sidebar visibility
-  }
+    this.isSidebarVisible = !this.isSidebarVisible;   }
 
   toggleHamburger() {
-    this.isHamburgerVisible = !this.isHamburgerVisible; // Toggle hamburger menu visibility
-  }
+    this.isHamburgerVisible = !this.isHamburgerVisible;   }
 
-  // Listener to detect clicks outside the sidebar
-  @HostListener('document:click', ['$event'])
+    @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     const targetElement = event.target as HTMLElement;
     if (
@@ -45,7 +40,6 @@ export class HeaderComponent {
       !this.eRef.nativeElement.contains(targetElement) &&
       !targetElement.classList.contains('navbar-toggler')
     ) {
-      this.isSidebarVisible = false; // Close sidebar if click is outside
-    }
+      this.isSidebarVisible = false;     }
   }
 }

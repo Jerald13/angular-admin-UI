@@ -20,9 +20,9 @@
         <div class="nav-column flex-grow-1 p-3">
             <!-- Title and Plus Icon -->
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="mb-0" style="color: black; font-size: 20px; padding-left: 20px;">PROCUREMENT</h5>
-                <button class="plus_icon btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                    >
+                <h5 class="mb-0" style="color: black; font-size: 20px;">PROCUREMENT</h5>
+                <button class="btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                    style="border: 2px solid #0b8fe2; color: #0b8fe2; background-color: transparent; width: 35px; height: 35px; padding: 0;">
                     <mat-icon fontIcon="add" style="font-size: 25px; font-weight: bold; color: #0b8fe2;"></mat-icon>
                 </button>
             </div>
@@ -32,16 +32,18 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <!-- PI Dropdown Toggle -->
-                    <a class="nav-link d-flex align-items-center" style="color: black;" data-bs-toggle="collapse"
-                        href="#piDropdown" role="button" aria-expanded="false" aria-controls="piDropdown">
+                    <a class="nav-link d-flex align-items-center" style="color: black; cursor: pointer;"
+                        (click)="toggleDropdown()" role="button" aria-expanded="false"
+                        [attr.aria-controls]="isDropdownOpen ? 'piDropdown' : null">
                         <mat-icon fontIcon="insert_chart" class="me-2"></mat-icon>
                         PI
-                        <mat-icon class="ms-auto dropdown-arrow" fontIcon="expand_more"></mat-icon>
+                        <mat-icon class="ms-auto dropdown-arrow"
+                            [fontIcon]="isDropdownOpen ? 'expand_less' : 'expand_more'"></mat-icon>
                     </a>
 
                     <!-- Dropdown Menu -->
-                    <ul class="collapse nav flex-column ms-3" style="color: black;" id="piDropdown">
-                        <!-- Dropdown Items -->
+                    <ul [ngClass]="{'collapse show': isDropdownOpen, 'collapse': !isDropdownOpen}"
+                        class="nav flex-column ms-3" style="color: black;" id="piDropdown">
                         <li class="nav-item">
                             <a class="nav-link" style="color: black;" routerLink="chart1">Chart 1</a>
                         </li>
@@ -50,6 +52,7 @@
                         </li>
                     </ul>
                 </li>
+
 
                 <!-- More Navigation Items -->
                 <li class="nav-item">
@@ -86,7 +89,7 @@
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mb-0" style="color: black; font-size: 20px;">PROCUREMENT</h5>
                 <button class="btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                    style="border: 2px solid #0b8fe2; color: #0b8fe2; background-color: transparent; width: 25px; height: 2cap; padding: 0;">
+                    style="border: 2px solid #0b8fe2; color: #0b8fe2; background-color: transparent; width: 20px; padding: 0;">
                     <mat-icon fontIcon="add" style="font-size: 25px; font-weight: bold; color: #0b8fe2;"></mat-icon>
                 </button>
             </div>
@@ -96,15 +99,18 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <!-- PI Dropdown Toggle -->
-                    <a class="nav-link d-flex align-items-center" style="color: black;" data-bs-toggle="collapse"
-                        href="#piDropdown" role="button" aria-expanded="false" aria-controls="piDropdown">
+                    <a class="nav-link d-flex align-items-center" style="color: black; cursor: pointer;"
+                        (click)="toggleDropdown()" role="button" aria-expanded="false"
+                        [attr.aria-controls]="isDropdownOpen ? 'piDropdown' : null">
                         <mat-icon fontIcon="insert_chart" class="me-2"></mat-icon>
                         PI
-                        <mat-icon class="ms-auto dropdown-arrow" fontIcon="expand_more"></mat-icon>
+                        <mat-icon class="ms-auto dropdown-arrow"
+                            [fontIcon]="isDropdownOpen ? 'expand_less' : 'expand_more'"></mat-icon>
                     </a>
 
                     <!-- Dropdown Menu -->
-                    <ul class="collapse nav flex-column ms-3" style="color: black;" id="piDropdown">
+                    <ul [ngClass]="{'collapse show': isDropdownOpen, 'collapse': !isDropdownOpen}"
+                        class="nav flex-column ms-3" style="color: black;" id="piDropdown">
                         <li class="nav-item">
                             <a class="nav-link" style="color: black;" routerLink="chart1">Chart 1</a>
                         </li>
@@ -114,7 +120,6 @@
                     </ul>
                 </li>
 
-                <!-- More Navigation Items -->
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center" style="color: black;" routerLink="chart1">
                         <mat-icon fontIcon="show_chart" class="me-2"></mat-icon>
@@ -135,7 +140,6 @@
             <button class="mobileHamburgerside" (click)="toggleSidebar()" #mobileHamburgerButton>☰</button>
             <button class="Hamburgerside" (click)="toggleSidebarPC()" #pcHamburgerButton>☰</button>
 
-            <!-- Menu Icon for Toggling Sidebar -->
             <app-breadcrumb></app-breadcrumb>
 
         </nav>

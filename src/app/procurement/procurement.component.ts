@@ -18,9 +18,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./procurement.component.scss'],
 })
 export class ProcurementComponent implements AfterViewInit {
-  isSidebarVisibleOnMobile: boolean = false; // Control mobile sidebar visibility
-  isSidebarVisibleOnPC: boolean = false; // Control PC sidebar visibility
+  isSidebarVisibleOnMobile: boolean = false;   isSidebarVisibleOnPC: boolean = false;   isDropdownOpen: boolean = false;
 
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
   @ViewChild('sidebarContainerMobile') sidebarContainerMobileRef!: ElementRef;
   @ViewChild('mobileHamburgerButton') mobileHamburgerButtonRef!: ElementRef;
   @ViewChild('pcHamburgerButton') pcHamburgerButtonRef!: ElementRef;
@@ -28,8 +30,7 @@ export class ProcurementComponent implements AfterViewInit {
   constructor(private eRef: ElementRef) {}
 
   ngAfterViewInit(): void {
-    // Check that ViewChild references are available
-    if (
+        if (
       !this.sidebarContainerMobileRef ||
       !this.mobileHamburgerButtonRef ||
       !this.pcHamburgerButtonRef
@@ -38,29 +39,24 @@ export class ProcurementComponent implements AfterViewInit {
     }
   }
 
-  // Toggle sidebar visibility for mobile
-  toggleSidebar() {
+    toggleSidebar() {
     this.isSidebarVisibleOnMobile = !this.isSidebarVisibleOnMobile;
   }
 
-  // Toggle sidebar visibility for PC
-  toggleSidebarPC() {
+    toggleSidebarPC() {
     this.isSidebarVisibleOnPC = !this.isSidebarVisibleOnPC;
   }
 
-  // Listener to detect clicks outside the sidebar
-  @HostListener('document:click', ['$event'])
+    @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     const targetElement = event.target as HTMLElement;
 
-    // Ensure ViewChild elements are defined
-    if (
+        if (
       !this.sidebarContainerMobileRef ||
       !this.mobileHamburgerButtonRef ||
       !this.pcHamburgerButtonRef
     ) {
-      return; // Exit if ViewChild elements are not found
-    }
+      return;     }
 
     const sidebarElement = this.sidebarContainerMobileRef
       .nativeElement as HTMLElement;
@@ -69,18 +65,9 @@ export class ProcurementComponent implements AfterViewInit {
     const pcHamburgerElement = this.pcHamburgerButtonRef
       .nativeElement as HTMLElement;
 
-    // Check if the clicked target is outside the sidebar element and both hamburger buttons
-    if (
-      (this.isSidebarVisibleOnMobile || this.isSidebarVisibleOnPC) && // Check if any sidebar is currently visible
-      targetElement && // Ensure targetElement is defined
-      sidebarElement && // Ensure sidebarElement is defined
-      !sidebarElement.contains(targetElement) && // Check if the click is outside the sidebar
-      !mobileHamburgerElement.contains(targetElement) && // Check if the click is not on the mobile button
-      !pcHamburgerElement.contains(targetElement) // Check if the click is not on the PC button
-    ) {
-      this.isSidebarVisibleOnMobile = false; // Close mobile sidebar if click is outside
-      this.isSidebarVisibleOnPC = false; // Close PC sidebar if click is outside
-    }
+        if (
+      (this.isSidebarVisibleOnMobile || this.isSidebarVisibleOnPC) &&       targetElement &&       sidebarElement &&       !sidebarElement.contains(targetElement) &&       !mobileHamburgerElement.contains(targetElement) &&       !pcHamburgerElement.contains(targetElement)     ) {
+      this.isSidebarVisibleOnMobile = false;       this.isSidebarVisibleOnPC = false;     }
   }
 
   onSidebarClick(event: MouseEvent): void {
