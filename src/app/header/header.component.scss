@@ -1,29 +1,61 @@
+/* Navbar styling */
 .navbar {
-  background-color: #2c3e50; /* Dark background for the navbar */
+  background-color: #2c405a !important; /* Dark background for the navbar */
+  height: 100%; /* Ensure navbar occupies full height */
+  padding: 0px;
 }
 
-.navbar-brand img {
-  width: 30px; /* Size of the logo */
-}
-
-.navbar-toggler {
-  border: none; /* Remove border around the hamburger button */
-}
-
+/* Adjust the styling for navbar items */
 .navbar-nav .nav-link {
   color: #f2f2f2; /* Default link color */
+  display: flex;
+  align-items: center;
+  height: 100%; /* Make sure nav links also occupy full height */
+  padding: 0 20px; /* Ensure spacing is consistent */
 }
 
-.navbar-nav .nav-link:hover {
-  color: #ddd; /* Link hover color */
+/* Vertical lines for icons */
+.icon-with-lines {
+  position: relative; /* Establish positioning context for pseudo-elements */
+  padding: 10px 20px; /* Add padding for space between the icon and the lines */
+  display: flex;
+  align-items: center;
+  height: 100%; /* Match the height of the navbar */
+  margin-right: 0px !important;
 }
 
+/* Make the vertical lines bigger and more prominent */
+.icon-with-lines::before,
+.icon-with-lines::after {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute;
+  top: 0px; /* Start the line slightly below the top for better alignment */
+  bottom: 0px; /* End the line slightly above the bottom */
+  width: 0.5px; /* Increase line thickness for visibility */
+  background-color: #52667d; /* Line color */
+}
+
+.icon-with-lines::before {
+  left: 0; /* Position left line */
+}
+
+.icon-with-lines::after {
+  right: 0; /* Position right line */
+}
+
+/* Styling for the profile section */
+.navbar .dropdown-toggle .text-white {
+  margin-left: 10px;
+}
+
+/* Profile image adjustments */
+.navbar .rounded-circle {
+  width: 40px; /* Adjust as needed */
+  height: 40px; /* Ensure height is the same as width for a perfect circle */
+}
+
+/* Adjust dropdown menu position */
 .dropdown-menu {
   right: 0; /* Align dropdown menu to the right */
   left: auto; /* Disable left alignment */
-}
-
-.account-img {
-  width: 30px;
-  border-radius: 50%; /* Circular profile image */
 }

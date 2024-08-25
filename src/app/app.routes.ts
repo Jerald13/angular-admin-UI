@@ -22,6 +22,7 @@ export const routes: Routes = [
       },
     ],
   },
+  
 
-  //   { path: '**', component: AppComponent },
+  { path: '**', component: DashboardComponent },
 ];

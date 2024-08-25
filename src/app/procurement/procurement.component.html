@@ -1,42 +1,57 @@
 <!-- Sidebar and Content -->
 <div class="row no-gutters">
     <!-- Sidebar -->
-    <div class="col-md-3 d-flex sidebar bg-dark">
+    <div class="col-md-3 d-flex sidebar bg-dark" style="color: black;">
         <!-- Icon Column -->
-        <div class="icon-column d-flex flex-column align-items-center bg-secondary">
-            <a href="#" class="nav-link py-3">
-                <img src="https://via.placeholder.com/32" alt="Icon 1" />
+        <div class="icon-column d-flex flex-column align-items-center bg-secondary p-2">
+            <!-- First Navigation Item -->
+            <a href="#" class="nav-link py-3 text-center">
+                <mat-icon fontIcon="shopping_cart" class="d-block mx-auto mb-1 text-white"></mat-icon>
+                <span class="text-white d-block" style="margin-left:10px;font-size:8px;">PROCUREMENT</span>
             </a>
-            <a href="#" class="nav-link py-3">
-                <img src="https://via.placeholder.com/32" alt="Icon 2" />
+            <!-- Second Navigation Item -->
+            <a href="#" class="nav-link py-3 text-center">
+                <mat-icon fontIcon="list" class="d-block mx-auto mb-1 text-white"></mat-icon>
+                <span class="text-white d-block" style="margin-left:5px;font-size:8px;">PROJECT</span>
             </a>
         </div>
+
+
         <!-- Navigation Column -->
         <div class="nav-column flex-grow-1 p-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <!-- PI Dropdown Toggle -->
-                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#piDropdown" role="button"
-                        aria-expanded="false" aria-controls="piDropdown">
+                    <a class="nav-link d-flex align-items-center" style="color: black;" data-bs-toggle="collapse"
+                        href="#piDropdown" role="button" aria-expanded="false" aria-controls="piDropdown">
+                        <mat-icon fontIcon="insert_chart" class="me-2"></mat-icon> <!-- Material icon for chart -->
                         PI
+                        <mat-icon class="ms-auto dropdown-arrow" fontIcon="expand_more"></mat-icon>
+                        <!-- Dropdown arrow icon -->
                     </a>
 
                     <!-- Dropdown Menu -->
-                    <ul class="collapse nav flex-column ml-3" id="piDropdown">
+                    <ul class="collapse nav flex-column ms-3" style="color: black;" id="piDropdown">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Chart 1</a>
+                            <a class="nav-link" style="color: black;" href="#">Chart 1</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Chart 2</a>
+                            <a class="nav-link" style="color: black;" href="#">Chart 2</a>
                         </li>
                     </ul>
+
 
                 </li>
 
                 <!-- More Navigation Items -->
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">My Research</a>
+                    <a class="nav-link d-flex align-items-center" style="color: black;" href="#">
+                        <mat-icon fontIcon="show_chart" class="me-2"></mat-icon>
+                        <!-- Material icon for research/chart -->
+                        My Research
+                    </a>
                 </li>
+
             </ul>
         </div>
     </div>
