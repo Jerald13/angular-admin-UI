@@ -1,3 +1,7 @@
+![pc_view](https://github.com/user-attachments/assets/a14e2710-7836-40a4-9f52-7bbfec66b573)
+
+![mobile_responsive](https://github.com/user-attachments/assets/b401bd29-2297-44f1-93f3-82e516768d74)
+
 1. Run the following command to install all the necessary dependencies:
 
 npm install
