@@ -89,6 +89,28 @@ div#mobileSidebar {
   .mobile-sidebar {
     display: none; /* Hide sidebar on larger screens */
   }
+  /* General nav-link styles */
+  .navbar-nav .nav-link {
+    color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    position: relative; /* Allows us to position the blue line */
+    transition: color 0.3s ease, border-top 0.3s ease; /* Smooth transition */
+  }
+
+  /* Active link styling */
+  .navbar-nav .nav-link.active {
+    border-top: 5px solid #0e97eb; /* Blue line for active nav item */
+    color: white; /* Ensures active text color stays white */
+  }
+
+  /* Optional hover effect */
+  .navbar-nav .nav-link:hover {
+    color: #ffffff; /* Text color on hover */
+    border-top: 5px solid #0e97eb; /* Slightly darker blue on hover */
+  }
 }
 
 @media screen and (max-width: 992px) {

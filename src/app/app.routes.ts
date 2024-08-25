@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { ProjectComponent } from './project/project.component';
 import { ProcurementComponent } from './procurement/procurement.component';
 import { Chart1Component } from './procurement/chart1/chart1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';

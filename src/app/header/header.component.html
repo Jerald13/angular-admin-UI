@@ -16,12 +16,13 @@
     <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarContent">
       <ul class="navbar-nav me-auto d-flex align-items-center">
         <li class="nav-item d-flex align-items-center">
-          <a class="nav-link d-flex align-items-center" routerLink="/home" routerLinkActive="active"
+          <a class="nav-link d-flex align-items-center" routerLink="/dashboard" routerLinkActive="active"
             aria-current="page">
-            <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="home"
-              style="color: white; margin-right: 30px;"></mat-icon>
-            Home
+            <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="home" style="color: white; "></mat-icon>
           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Fleet</a>
@@ -30,7 +31,8 @@
           <a class="nav-link" href="#">Work</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/procurement" routerLinkActive="active" aria-current="page">Statistics</a>
+          <a class="nav-link" routerLink="/procurement" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }" aria-current="page">Statistics</a>
         </li>
       </ul>
     </div>
@@ -90,6 +92,7 @@
           <a class="nav-link text-white" routerLink="/procurement" routerLinkActive="active"
             aria-current="page">Statistics</a>
         </li>
+
       </ul>
     </div>
   </nav>
