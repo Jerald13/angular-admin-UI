@@ -28,6 +28,6 @@ export const routes: Routes = [
       },
     ],
   },
-
   { path: '**', component: ProcurementComponent },
+  { path: '', component: ProcurementComponent },
 ];

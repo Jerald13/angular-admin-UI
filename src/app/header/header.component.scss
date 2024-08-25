@@ -90,3 +90,9 @@ div#mobileSidebar {
     display: none; /* Hide sidebar on larger screens */
   }
 }
+
+@media screen and (max-width: 992px) {
+  a.navbar-brand.d-flex.align-items-center {
+    display: none !important;
+  }
+}
