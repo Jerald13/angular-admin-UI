@@ -8,6 +8,7 @@ import {
 } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
+import { MatIconModule } from '@angular/material/icon';
 
 interface Breadcrumb {
   label: string;
@@ -17,7 +18,7 @@ interface Breadcrumb {
 @Component({
   selector: 'app-breadcrumb',
   standalone: true,
-  imports: [CommonModule, RouterModule], // Import necessary modules
+  imports: [CommonModule, RouterModule, MatIconModule], // Import necessary modules
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss'],
 })
@@ -27,6 +28,9 @@ export class BreadcrumbComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    // Initialize breadcrumbs with the current route
+    this.breadcrumbs = this.createBreadcrumbs(this.route.root);
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -58,7 +62,8 @@ export class BreadcrumbComponent implements OnInit {
         breadcrumbs.push({ label, url });
       }
 
-      return this.createBreadcrumbs(child, url, breadcrumbs);
+      // Recursively call createBreadcrumbs for child routes
+      this.createBreadcrumbs(child, url, breadcrumbs);
     }
 
     return breadcrumbs;

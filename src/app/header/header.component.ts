@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
@@ -14,12 +15,36 @@ import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
     NgbDropdownModule,
     RouterLink,
     MatIconModule,
-  ], // Ensure BsDropdownModule is imported
+    CommonModule,
+  ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'], // Correct the key to 'styleUrls'
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor() {
-    console.log('HeaderComponent initialized');
+  isHamburgerVisible: boolean = true; // Set initial visibility to true
+  isSidebarVisible: boolean = false; // Boolean to control sidebar visibility
+
+  constructor(private eRef: ElementRef) {}
+
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible; // Toggle sidebar visibility
+  }
+
+  toggleHamburger() {
+    this.isHamburgerVisible = !this.isHamburgerVisible; // Toggle hamburger menu visibility
+  }
+
+  // Listener to detect clicks outside the sidebar
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const targetElement = event.target as HTMLElement;
+    if (
+      this.isSidebarVisible &&
+      targetElement &&
+      !this.eRef.nativeElement.contains(targetElement) &&
+      !targetElement.classList.contains('navbar-toggler')
+    ) {
+      this.isSidebarVisible = false; // Close sidebar if click is outside
+    }
   }
 }

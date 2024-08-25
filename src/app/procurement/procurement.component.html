@@ -33,10 +33,10 @@
                     <!-- Dropdown Menu -->
                     <ul class="collapse nav flex-column ms-3" style="color: black;" id="piDropdown">
                         <li class="nav-item">
-                            <a class="nav-link" style="color: black;" href="#">Chart 1</a>
+                            <a class="nav-link" style="color: black;" routerLink="chart1">Chart 1</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: black;" href="#">Chart 2</a>
+                            <a class="nav-link" style="color: black;" routerLink="chart2">Chart 2</a>
                         </li>
                     </ul>
 
@@ -45,7 +45,7 @@
 
                 <!-- More Navigation Items -->
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" style="color: black;" href="#">
+                    <a class="nav-link d-flex align-items-center" style="color: black;" routerLink="chart1">
                         <mat-icon fontIcon="show_chart" class="me-2"></mat-icon>
                         <!-- Material icon for research/chart -->
                         My Research
@@ -58,9 +58,8 @@
 
     <!-- Main Content -->
     <div class="col-md-9 content p-3">
-
         <app-breadcrumb></app-breadcrumb>
-        <a routerLink="chart1">Go to chart1</a>
         <router-outlet></router-outlet>
+
     </div>
 </div>

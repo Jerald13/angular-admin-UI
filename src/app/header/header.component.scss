@@ -1,61 +1,92 @@
 /* Navbar styling */
 .navbar {
-  background-color: #2c405a !important; /* Dark background for the navbar */
-  height: 100%; /* Ensure navbar occupies full height */
-  padding: 0px;
+  background-color: #2c405a !important;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Adjust the styling for navbar items */
+/* Sidebar styling for slide-in effect */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start hidden off the screen */
+  width: 250px;
+  height: 100vh;
+  transition: left 0.3s ease; /* Slide-in transition */
+  z-index: 1050;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  background-color: #2c405a; /* Match the sidebar background color in the image */
+}
+
+/* When sidebar is visible */
+.mobile-sidebar.show {
+  left: 0; /* Slide-in position */
+}
+
+/* Adjust navigation item spacing */
 .navbar-nav .nav-link {
-  color: #f2f2f2; /* Default link color */
+  color: #f2f2f2;
   display: flex;
   align-items: center;
-  height: 100%; /* Make sure nav links also occupy full height */
-  padding: 0 20px; /* Ensure spacing is consistent */
+  height: 100%;
+  padding: 10px 0;
+  padding: 20px;
 }
 
-/* Vertical lines for icons */
+/* Profile and Logo Styling for Sidebar */
+.mobile-sidebar .d-flex {
+  background-color: #2c405a;
+  border-bottom: 1px solid #3e4a5a;
+}
+
+/* Adjust icon and spacing */
 .icon-with-lines {
-  position: relative; /* Establish positioning context for pseudo-elements */
-  padding: 10px 20px; /* Add padding for space between the icon and the lines */
+  position: relative;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
-  height: 100%; /* Match the height of the navbar */
+  height: 100%;
   margin-right: 0px !important;
 }
 
-/* Make the vertical lines bigger and more prominent */
 .icon-with-lines::before,
 .icon-with-lines::after {
-  content: ""; /* Required for pseudo-elements */
+  content: "";
   position: absolute;
-  top: 0px; /* Start the line slightly below the top for better alignment */
-  bottom: 0px; /* End the line slightly above the bottom */
-  width: 0.5px; /* Increase line thickness for visibility */
-  background-color: #52667d; /* Line color */
+  top: 0;
+  bottom: 0;
+  width: 0.5px;
+  background-color: #52667d;
 }
 
 .icon-with-lines::before {
-  left: 0; /* Position left line */
+  left: 0;
 }
 
 .icon-with-lines::after {
-  right: 0; /* Position right line */
-}
-
-/* Styling for the profile section */
-.navbar .dropdown-toggle .text-white {
-  margin-left: 10px;
+  right: 0;
 }
 
 /* Profile image adjustments */
 .navbar .rounded-circle {
-  width: 40px; /* Adjust as needed */
-  height: 40px; /* Ensure height is the same as width for a perfect circle */
+  width: 40px;
+  height: 40px;
 }
 
-/* Adjust dropdown menu position */
 .dropdown-menu {
-  right: 0; /* Align dropdown menu to the right */
-  left: auto; /* Disable left alignment */
+  right: 0;
+  left: auto;
+}
+
+div#mobileSidebar {
+  background: #2c405a !important;
+}
+
+/* Additional Media Queries for Responsiveness */
+@media (min-width: 992px) {
+  /* Bootstrap lg breakpoint */
+  .mobile-sidebar {
+    display: none; /* Hide sidebar on larger screens */
+  }
 }

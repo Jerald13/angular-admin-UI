@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- Hamburger menu button for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+    <button *ngIf="isHamburgerVisible" class="navbar-toggler d-lg-none" type="button" (click)="toggleSidebar()"
       aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,11 +12,10 @@
       <img src="assets/chart-logo.png" alt="Logo" style="width: 30px; margin-left: 30px;">
     </a>
 
-    <!-- Collapsible content for mobile -->
-    <div class="collapse navbar-collapse" id="navbarContent">
+    <!-- Collapsible content for desktop -->
+    <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarContent">
       <ul class="navbar-nav me-auto d-flex align-items-center">
         <li class="nav-item d-flex align-items-center">
-          <!-- Home icon with text -->
           <a class="nav-link d-flex align-items-center" routerLink="/home" routerLinkActive="active"
             aria-current="page">
             <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="home"
@@ -64,6 +63,35 @@
           <button ngbDropdownItem>Sign out</button>
         </div>
       </div>
+    </div>
+
+    <!-- Sidebar for mobile slide-in animation (visible on mobile only) -->
+    <div class="mobile-sidebar d-lg-none bg-primary text-white" [ngClass]="{ 'show': isSidebarVisible }"
+      id="mobileSidebar">
+      <!-- Logo and Profile on top -->
+      <div class="d-flex align-items-center p-3">
+        <img src="assets/chart-logo.png" alt="Logo" style="width: 30px;">
+        <span class="ms-2 fw-bold">BASSnet 3.0</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="navbar-nav me-auto d-flex flex-column align-items-start p-3">
+        <li class="nav-item d-flex align-items-center mb-3">
+        </li>
+        <li class="nav-item mb-3">
+          <a class="nav-link text-white" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item mb-3">
+          <a class="nav-link text-white" href="#">Fleet</a>
+        </li>
+        <li class="nav-item mb-3">
+          <a class="nav-link text-white" href="#">Work</a>
+        </li>
+        <li class="nav-item mb-3">
+          <a class="nav-link text-white" routerLink="/procurement" routerLinkActive="active"
+            aria-current="page">Statistics</a>
+        </li>
+      </ul>
     </div>
   </nav>
 </header>

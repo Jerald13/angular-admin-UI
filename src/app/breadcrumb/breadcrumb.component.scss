@@ -1,0 +1,26 @@
+.breadcrumb-nav {
+  background-color: #f8f9fa; /* Light background color for the breadcrumb area */
+  border-radius: 4px; /* Rounded corners for a modern look */
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.breadcrumb-icon {
+  font-size: 20px; /* Adjust icon size */
+  color: #495057; /* Icon color */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "/"; /* Separator for breadcrumb items */
+  color: #6c757d; /* Color for separator */
+  padding: 0 8px; /* Spacing around separator */
+}
+
+.breadcrumb-item a {
+  color: #495057; /* Default color for breadcrumb links */
+  text-decoration: none; /* Remove underline from breadcrumb links */
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline; /* Underline on hover for breadcrumb links */
+}

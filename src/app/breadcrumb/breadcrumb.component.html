@@ -1,13 +1,22 @@
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li *ngFor="let breadcrumb of breadcrumbs; let last = last"
-            [ngClass]="{ 'breadcrumb-item': true, 'active': last }">
-            <ng-container *ngIf="!last; else lastBreadcrumb">
-                <a [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
-            </ng-container>
-            <ng-template #lastBreadcrumb>
-                <span>{{ breadcrumb.label }}</span>
-            </ng-template>
-        </li>
+<nav aria-label="breadcrumb" class="breadcrumb-nav d-flex align-items-center">
+    <!-- Icon for the breadcrumb -->
+    <mat-icon class="breadcrumb-icon me-2">menu</mat-icon> <!-- Replace 'menu' with desired icon name -->
+  
+    <!-- Breadcrumb List -->
+    <ol class="breadcrumb mb-0">
+      <li
+        *ngFor="let breadcrumb of breadcrumbs; let last = last"
+        class="breadcrumb-item"
+        [ngClass]="{ 'active': last }"
+        [attr.aria-current]="last ? 'page' : null"
+      >
+        <ng-container *ngIf="!last; else lastBreadcrumb">
+          <a [routerLink]="breadcrumb.url" class="text-decoration-none">{{ breadcrumb.label }}</a>
+        </ng-container>
+        <ng-template #lastBreadcrumb>
+          <span>{{ breadcrumb.label }}</span>
+        </ng-template>
+      </li>
     </ol>
-</nav>
+  </nav>
+  
